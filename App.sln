@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movies.Api", "src\Services\Movies.Api\Movies.Api.csproj", "{654550F2-DCC1-4CFF-89BC-4C3D4F85525A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BBF20459-5BBE-4136-8B51-058CFCA51742}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1BDA21F0-B03C-4CC2-AAB4-75AE1B85AEE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{19B60998-45D7-440E-A508-D0B84D14693C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGw-Base", "ApiGw-Base", "{EA7E9918-2390-4958-8EEB-0DFEF4B30298}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1FF12B84-4D64-444B-B70B-7D9D2A183F4C}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		docker-compose.override.yml = docker-compose.override.yml
+		docker-compose.yml = docker-compose.yml
+		Jenkinsfile = Jenkinsfile
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotApiGw", "src\ApiGateways\ApiGw-Base\OcelotApiGw\OcelotApiGw.csproj", "{A6424BE4-F5AE-4BBF-9A6E-E590C380974F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2F59F7D1-00FD-4279-B282-2D88953A7C94}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web.Bff.Movies", "Web.Bff.Movies", "{0E1A95CB-8997-4CA2-98F5-589C09792BDE}"
+	ProjectSection(SolutionItems) = preProject
+		src\ApiGateways\Web.Bff.Movies\ocelot.Development.json = src\ApiGateways\Web.Bff.Movies\ocelot.Development.json
+		src\ApiGateways\Web.Bff.Movies\ocelot.Production.json = src\ApiGateways\Web.Bff.Movies\ocelot.Production.json
+		src\ApiGateways\Web.Bff.Movies\ocelot.Stage.json = src\ApiGateways\Web.Bff.Movies\ocelot.Stage.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movies.Api.UnitTests", "tests\Movies.Api.UnitTests\Movies.Api.UnitTests.csproj", "{28977CD4-EF4B-45F4-AA78-6BF3C87F7D3B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movies.Api.IntegrationTests", "tests\Movies.Api.IntegrationTests\Movies.Api.IntegrationTests.csproj", "{5DE1D9FC-2456-4304-A5B7-286766AB09B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{654550F2-DCC1-4CFF-89BC-4C3D4F85525A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{654550F2-DCC1-4CFF-89BC-4C3D4F85525A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{654550F2-DCC1-4CFF-89BC-4C3D4F85525A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{654550F2-DCC1-4CFF-89BC-4C3D4F85525A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6424BE4-F5AE-4BBF-9A6E-E590C380974F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6424BE4-F5AE-4BBF-9A6E-E590C380974F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6424BE4-F5AE-4BBF-9A6E-E590C380974F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6424BE4-F5AE-4BBF-9A6E-E590C380974F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28977CD4-EF4B-45F4-AA78-6BF3C87F7D3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28977CD4-EF4B-45F4-AA78-6BF3C87F7D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28977CD4-EF4B-45F4-AA78-6BF3C87F7D3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28977CD4-EF4B-45F4-AA78-6BF3C87F7D3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DE1D9FC-2456-4304-A5B7-286766AB09B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE1D9FC-2456-4304-A5B7-286766AB09B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE1D9FC-2456-4304-A5B7-286766AB09B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE1D9FC-2456-4304-A5B7-286766AB09B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{654550F2-DCC1-4CFF-89BC-4C3D4F85525A} = {2F59F7D1-00FD-4279-B282-2D88953A7C94}
+		{19B60998-45D7-440E-A508-D0B84D14693C} = {BBF20459-5BBE-4136-8B51-058CFCA51742}
+		{EA7E9918-2390-4958-8EEB-0DFEF4B30298} = {19B60998-45D7-440E-A508-D0B84D14693C}
+		{A6424BE4-F5AE-4BBF-9A6E-E590C380974F} = {EA7E9918-2390-4958-8EEB-0DFEF4B30298}
+		{2F59F7D1-00FD-4279-B282-2D88953A7C94} = {BBF20459-5BBE-4136-8B51-058CFCA51742}
+		{0E1A95CB-8997-4CA2-98F5-589C09792BDE} = {19B60998-45D7-440E-A508-D0B84D14693C}
+		{28977CD4-EF4B-45F4-AA78-6BF3C87F7D3B} = {1BDA21F0-B03C-4CC2-AAB4-75AE1B85AEE8}
+		{5DE1D9FC-2456-4304-A5B7-286766AB09B6} = {1BDA21F0-B03C-4CC2-AAB4-75AE1B85AEE8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0127D3F5-0CA1-478A-88C9-24E22484AB74}
+	EndGlobalSection
+EndGlobal

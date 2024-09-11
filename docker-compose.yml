@@ -1,0 +1,25 @@
+services:
+    webmoviesapigw:
+        image: demo/ocelotapigw:${TAG:-latest}
+        build:
+            context: .
+            dockerfile: src/ApiGateways/ApiGw-Base/OcelotApiGw/Dockerfile
+
+    moviesapi:
+        image: demo/moviesapi:${TAG:-latest}
+        environment:
+            - ConnectionStrings:RedisConnection=redis:6379
+        build:
+            context: .
+            dockerfile: src/Services/Movies.Api/Dockerfile
+        depends_on:
+            redis:
+                condition: service_healthy
+
+    redis:
+        image: redis
+        restart: always
+        ports:
+            - "6380:6379"
+        healthcheck:
+            test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
