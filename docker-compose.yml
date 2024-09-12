@@ -8,7 +8,7 @@ services:
     moviesapi:
         image: demo/moviesapi:${TAG:-latest}
         environment:
-            - ConnectionStrings:RedisConnection=redis:6379
+            - ConnectionStrings:MoviesDb=redis:6379
         build:
             context: .
             dockerfile: src/Services/Movies.Api/Dockerfile

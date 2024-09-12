@@ -5,7 +5,7 @@ namespace Movies.Api.UnitTests
         [Fact]
         public void Test1()
         {
-
+            // It just passes
         }
     }
 }
