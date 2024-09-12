@@ -11,33 +11,30 @@ pipeline {
         }
     }
 
-    stage('Run Docker Compose') {
-      steps {
-        sh 'docker-compose up -d' 
-      }
-    }
-
     stage('Build') {
       steps {
+        echo 'Building..'
+
         docker.build(imageName: 'redis:latest', dockerfile: './Dockerfile').push()
         docker.run(image: 'redis:latest', detached: true, portMappings: [containerPort: 6379, hostPort: 6379])
+
+        sh 'dotnet restore'
+        sh 'dotnet build --no-restore'
       }
     }
 
-    stage('Testing') {
+    stage('Test') {
       steps {
-        sh './build.sh'
+        echo 'Testing..'
+
+        sh 'dotnet test --no-build --verbosity normal'
       }
     }
 
-    stage\('Cleanup'\) {
+    stage('Deploy') {
       steps {
-        sh 'docker-compose down' 
-      }
-    }
+        echo 'Deploying..'
 
-    stage('Deployment') {
-      steps {
         docker.stop('redis:latest').remove()
       }
     }
