@@ -5,6 +5,18 @@ pipeline {
   }
 
   stages {
+    stage('Checkout') {
+        steps {
+            git 'https://github.com/mishakrpv/jenkins-ansible-demo.git'
+        }
+    }
+
+    stage('Run Docker Compose') {
+      steps {
+        sh 'docker-compose up -d' 
+      }
+    }
+
     stage('Build') {
       steps {
         docker.build(imageName: 'redis:latest', dockerfile: './Dockerfile').push()
@@ -15,6 +27,12 @@ pipeline {
     stage('Testing') {
       steps {
         sh './build.sh'
+      }
+    }
+
+    stage\('Cleanup'\) {
+      steps {
+        sh 'docker-compose down' 
       }
     }
 

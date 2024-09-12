@@ -15,20 +15,18 @@ namespace Movies.Api.IntegrationTests
 {
     public class MoviesApiTests : IClassFixture<MoviesApiFixture>
     {
-        private readonly WebApplicationFactory<Program> _webApplicationFactory;
+        private readonly WebApplicationFactory<Program> _factory;
         private readonly HttpClient _httpClient;
         private readonly JsonSerializerOptions _jsonSerializerOptions = new(JsonSerializerDefaults.Web);
 
-        private Guid? _movieId;
-
         public MoviesApiTests(MoviesApiFixture fixture)
         {
-            _webApplicationFactory = fixture;
-            _httpClient = _webApplicationFactory.CreateDefaultClient();
+            _factory = fixture;
+            _httpClient = _factory.CreateClient();
         }
 
         [Fact]
-        public async Task Create_NormalMovie_ReturnsOk()
+        public async Task Create_Movie_ReturnsOk()
         {
             // Arrange
             var request = new CreateMovieRequest("Title", "Description");
@@ -44,17 +42,16 @@ namespace Movies.Api.IntegrationTests
 
             createdMovie.Should().NotBeNull();
             createdMovie.Id.Should().NotBeEmpty();
-
-            _movieId = createdMovie.Id;
         }
 
         [Fact]
         public async Task Query_MovieById_ReturnsOk()
         {
             // Arrange
+            var movieId = Guid.NewGuid();
 
             // Act
-            var response = await _httpClient.GetAsync($"/api/movies/{_movieId}");
+            var response = await _httpClient.GetAsync($"/api/movies/{movieId}");
 
             // Assert
             response.EnsureSuccessStatusCode();

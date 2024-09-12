@@ -20,7 +20,6 @@ namespace Movies.Api.Controllers
         }
 
         [HttpPost]
-        [Route("/")]
         public async Task<IActionResult> CreateMovieById(
             [FromBody] CreateMovieRequest request)
         {
